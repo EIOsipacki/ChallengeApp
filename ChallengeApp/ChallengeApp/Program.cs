@@ -1,31 +1,24 @@
-﻿string name = "Ewa";
-int age = 33;
-//Man, man, women, Women
-string gender = "women";
+﻿int number = 4566;
+string numberInString = number.ToString();
+char[] letters = numberInString.ToCharArray();
 
+char[] cyfry = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+int sumLetter = 0;
 
-if (gender == "Women" || gender == "women")
+for (int j = 0; j < 10; j++)
 {
-    if (age < 30)
+    sumLetter = 0;
+    Console.Write(cyfry[j]);
+    Console.Write(" => ");
+
+    for (int i = 0; i < numberInString.Length; i++)
     {
-        Console.WriteLine("Kobieta poniżej 30 lat");
+        if (cyfry[j] == letters[i])
+        {
+            sumLetter++;
+        };
+        
     }
-    else
-    {
-        if (name == "Ewa" && age == 33) 
-            {
-            Console.WriteLine("Jestem w lini 9");
-            }
-    }
-}
-else
-{
-    if (age < 18)
-    {
-        Console.WriteLine("Jestem w lini 9");
-    }
-    else
-    {
-        Console.WriteLine("END PROGRAM ");
-    }
+    Console.WriteLine(sumLetter);
+    //for J
 }
