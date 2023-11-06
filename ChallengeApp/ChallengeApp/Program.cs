@@ -22,3 +22,23 @@ for (int j = 0; j < 10; j++)
     Console.WriteLine(sumLetter);
     //for J
 }
+
+//div mod
+
+Console.WriteLine(" Onother solution by DIV MOD ");
+int[] resultArray = new int[10]; 
+int numberDiv10 = number;
+while (numberDiv10>0) 
+{
+    int numberMod10 = numberDiv10 % 10;
+    resultArray[numberMod10]++;
+    numberDiv10 /= 10;
+
+}
+for (int i=0; i<10;i++ )
+{
+    Console.Write(i);
+    Console.Write(" => ");
+    Console.WriteLine(resultArray[i]);
+
+}
