@@ -40,4 +40,6 @@ namespace ChallengeApp
             this.score.Add(punkty);
         }
     }
+
+
 }
