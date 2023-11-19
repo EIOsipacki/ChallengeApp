@@ -43,7 +43,16 @@ namespace ChallengeApp
                 Console.WriteLine("String is not Float");
             }
         }
-
+        public void AddGrades(double grade)
+        {
+            var value = (float)grade;
+            this.AddGrades(value);
+        }
+        public void AddGrades(int grade)
+        {
+           var value = (float)grade;
+           this.AddGrades(value);
+        }
         public Statistics GetStatistics() 
         {
             var statistics = new Statistics();

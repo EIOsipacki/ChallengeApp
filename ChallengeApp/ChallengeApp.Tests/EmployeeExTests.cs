@@ -38,14 +38,14 @@ public class EmployeeExTests
         //arrange
         var employee = new EmployeeEx("Adam", "Kamizelich");
         employee.AddGrades(2);
-        employee.AddGrades(1);
+        employee.AddGrades(0);
         employee.AddGrades(6);
         // act
 
         var statistics = employee.GetStatistics();
 
         //assert
-        Assert.AreEqual((2+1+6)/3, statistics.Average);
+        Assert.AreEqual((2+0+6)/3, statistics.Average);
     }
 
 }
