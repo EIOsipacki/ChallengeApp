@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,6 +59,38 @@ namespace ChallengeApp
             var value = (float)grade;
             this.AddGrades(value);
         }
+        //dzien 12 
+        // litera A =100 pumktów; B -80 punktów; ... Z= 1 punkt
+        public void AddGrades(char grade)
+        {
+            switch (grade)
+            {
+                case 'A':
+                case 'a':
+                    this.grades.Add(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.grades.Add(80);
+                    break;
+                case 'C':
+                    this.grades.Add(60);
+                    break;
+                case 'D':
+                    this.grades.Add(40);
+                    break;
+                case 'E':
+                    this.grades.Add(20);
+                    break;
+                default:
+                    Console.WriteLine("Wrong letter");
+                    this.grades.Add(0);
+                    break; 
+            }
+            
+        }
+
+        //dzien12
         public Statistics GetStatistics() 
         {
             var statistics = new Statistics();
@@ -76,7 +109,26 @@ namespace ChallengeApp
                 statistics.Average += grade;
             }
             statistics.Average /= this.grades.Count;
-            return statistics;
+
+            switch (statistics.Average)
+            {
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
+            }
+                    return statistics;
         }
     }
 }
