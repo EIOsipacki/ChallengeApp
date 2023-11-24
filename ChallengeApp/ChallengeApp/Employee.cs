@@ -18,7 +18,6 @@ namespace ChallengeApp
         }
         public string Name { get; private set; }
         public string Nazwisko { get; private set; }
-
         public int Wiek { get; private set; }
 
         public int SumaPunkty
