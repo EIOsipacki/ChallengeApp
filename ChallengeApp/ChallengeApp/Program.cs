@@ -17,8 +17,6 @@ while (true)
     employee.AddGrades(input);
 }
 
-
-
 var statistics = employee.GetStatistics();
 statistics.WriteLineStatistics();
 

@@ -76,12 +76,15 @@ namespace ChallengeApp
                     this.grades.Add(80);
                     break;
                 case 'C':
+                case 'c':
                     this.grades.Add(60);
                     break;
                 case 'D':
+                case 'd':
                     this.grades.Add(40);
                     break;
                 case 'E':
+                case 'e':
                     this.grades.Add(20);
                     break;
                 default:
