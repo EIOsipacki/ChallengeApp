@@ -31,19 +31,18 @@ namespace ChallengeApp
             }
             else 
             {
-                Console.WriteLine("invalid grade value");
+                throw new Exception("Invalid grade value");
             }
         }
         public void AddGrades(string grade)
         {
-            // var value= float.Parse(grade);
             if (float.TryParse(grade, out float result))
             {
                 this.AddGrades(result);
             }
             else
             {
-                Console.WriteLine("String is not Float");
+                throw new Exception("String is not a float");
             }
         }
         public void AddGrades(double grade)
@@ -62,7 +61,7 @@ namespace ChallengeApp
             this.AddGrades(value);
         }
         //dzien 12 
-        // litera A =100 pumktów; B -80 punktów; ... Z= 1 punkt
+        // litera A =100 pumktów; B -80 punktów; ... 
         public void AddGrades(char grade)
         {
             switch (grade)
@@ -88,9 +87,7 @@ namespace ChallengeApp
                     this.grades.Add(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong letter");
-                    this.grades.Add(0);
-                    break; 
+                    throw new Exception("Wrong letter");
             }
             
         }
