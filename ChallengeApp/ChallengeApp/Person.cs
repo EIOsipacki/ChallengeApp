@@ -12,5 +12,6 @@ namespace ChallengeApp
         }
         public string Name { get; private set; }
         public string SurName { get; private set; }
+        public string Sex { get; private set; }
     }
 }
