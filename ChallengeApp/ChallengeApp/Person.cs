@@ -1,7 +1,7 @@
 ﻿
 namespace ChallengeApp
 {
-    public abstract class Person : System.Object
+    public abstract class Person
     {
        // protected int counter;
         public Person(string name, string surname, string sex)
