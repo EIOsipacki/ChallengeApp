@@ -14,8 +14,6 @@
         void AddGrades(int grade);
         void AddGrades(long grade);
         void AddGrades(char grade);
-
-
         Statistics GetStatistics();
 
 
