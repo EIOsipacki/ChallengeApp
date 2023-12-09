@@ -5,7 +5,7 @@ namespace ChallengeApp
     {
        // protected int counter;
         public Person(string name, string surname, string sex)
-        {
+        { 
             this.Name = name;
             this.SurName = surname;
             this.Sex = sex;
