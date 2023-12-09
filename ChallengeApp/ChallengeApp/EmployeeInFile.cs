@@ -3,6 +3,7 @@ namespace ChallengeApp
 {
     public class EmployeeInFile : EmployeeBase
     {
+        private const string fileName = "grades.txt";
         public EmployeeInFile(string name, string surname) 
             : base(name, surname)
         {
@@ -10,32 +11,50 @@ namespace ChallengeApp
 
         public override void AddGrades(float grade)
         {
-            throw new NotImplementedException();
+            using (var writer = File.AppendText(fileName))
+            {
+                writer.WriteLine(grade);
+            }
         }
 
         public override void AddGrades(string grade)
         {
-            throw new NotImplementedException();
+            using (var writer = File.AppendText(fileName))
+            {
+                writer.WriteLine(grade);
+            }
         }
 
         public override void AddGrades(double grade)
         {
-            throw new NotImplementedException();
+            using (var writer = File.AppendText(fileName))
+            {
+                writer.WriteLine(grade);
+            }
         }
 
         public override void AddGrades(int grade)
         {
-            throw new NotImplementedException();
+            using (var writer = File.AppendText(fileName))
+            {
+                writer.WriteLine(grade);
+            }
         }
 
         public override void AddGrades(long grade)
         {
-            throw new NotImplementedException();
+            using (var writer = File.AppendText(fileName))
+            {
+                writer.WriteLine(grade);
+            }
         }
 
         public override void AddGrades(char grade)
         {
-            throw new NotImplementedException();
+            using (var writer = File.AppendText(fileName))
+            {
+                writer.WriteLine(grade);
+            }
         }
 
         public override Statistics GetStatistics()

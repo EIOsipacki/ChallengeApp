@@ -20,12 +20,7 @@ namespace ChallengeApp
                 throw new Exception("Invalid grade value");
             }
         }
-        public override void SayHello()
-        {
-            Console.WriteLine("HI!!!");
-            base.SayHello();
-        }
-
+        
         public override void AddGrades(string grade)
         {
             if (float.TryParse(grade, out float result))
