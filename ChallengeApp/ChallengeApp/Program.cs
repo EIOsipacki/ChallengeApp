@@ -34,18 +34,20 @@ while (true)
 {
     Console.WriteLine("Podaj kolejną ocenę pracownika");
     Console.WriteLine("Kliknij 'Q' żeby Exit");
-    var inputfile = Console.ReadLine();
-    if (inputfile == "q")
+    var inputgradetofile = Console.ReadLine();
+    if (inputgradetofile == "q")
     {
         break;
     }
     try
     {
-        employee.AddGrades(inputfile);
+        employee.AddGrades(inputgradetofile);
     }
     catch (Exception exception)
     {
         Console.WriteLine($"Exception catched: {exception.Message}");
     }
 }
+var statistics = employee.GetStatistics();
+statistics.WriteLineStatistics();
 
