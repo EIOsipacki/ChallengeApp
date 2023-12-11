@@ -96,5 +96,5 @@ namespace ChallengeApp
             }
             return statistics;
         }
-    }
+     }
 }

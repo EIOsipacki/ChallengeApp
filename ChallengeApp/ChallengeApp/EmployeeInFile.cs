@@ -1,15 +1,17 @@
 ﻿
+using System.Reflection.PortableExecutable;
+
 namespace ChallengeApp
 {
     public class EmployeeInFile : EmployeeBase
     {
         private const string fileName = "grades.txt";
-        public EmployeeInFile(string name, string surname) 
+        public EmployeeInFile(string name, string surname)
             : base(name, surname)
         {
         }
 
-        private List<float> grades = new List<float>();
+        //private List<float> grades = new List<float>();
         public override void AddGrades(float grade)
         {
             if (grade >= 0 && grade <= 100)
@@ -19,13 +21,13 @@ namespace ChallengeApp
                 {
                     writer.WriteLine(grade);
                 }
-                this.grades.Add(grade);
+                // this.grades.Add(grade);
             }
             else
             {
                 throw new Exception("Invalid grade value");
             }
-            
+
         }
 
         public override void AddGrades(string grade)
@@ -70,38 +72,47 @@ namespace ChallengeApp
             statistics.Average = 0;
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
-
-            foreach (var grade in this.grades)
+            string line;
+            if (File.Exists(fileName))
             {
-                if (grade < 0)
+                using (var reader = File.OpenText(fileName))
                 {
-                    continue;
+                    int kollines = 1;
+                    line = reader.ReadLine();
+                    while (line != null)
+                    {
+                        float result = float.Parse(line);
+                        Console.WriteLine($"{kollines} stroka = {result}");
+                        statistics.Max = Math.Max(statistics.Max, result);
+                        statistics.Min = Math.Min(statistics.Min, result);
+                        statistics.Average += result;
+                        line = reader.ReadLine();
+                        kollines++;
+                    }
+                    statistics.Average /= (kollines - 1);
                 }
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Average += grade;
-            }
-            statistics.Average /= this.grades.Count;
-
-            switch (statistics.Average)
-            {
-                case var average when average >= 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
+                switch (statistics.Average)
+                {
+                    case var average when average >= 80:
+                        statistics.AverageLetter = 'A';
+                        break;
+                    case var average when average >= 60:
+                        statistics.AverageLetter = 'B';
+                        break;
+                    case var average when average >= 40:
+                        statistics.AverageLetter = 'C';
+                        break;
+                    case var average when average >= 20:
+                        statistics.AverageLetter = 'D';
+                        break;
+                    default:
+                        statistics.AverageLetter = 'E';
+                        break;
+                }
             }
             return statistics;
         }
     }
 }
+
+  

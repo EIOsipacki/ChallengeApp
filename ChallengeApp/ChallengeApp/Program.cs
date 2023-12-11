@@ -6,7 +6,7 @@ Console.WriteLine(" Witamy w Programie XVZ do oceny Pracowników");
 Console.WriteLine("=============================================");
 Console.WriteLine();
 
-//var supervisor = new Supervisor("Adam", "Mickiewicz");
+var supervisor = new Supervisor("Adam", "Mickiewicz");
 
 //while (true)
 //{
@@ -32,8 +32,8 @@ Console.WriteLine();
 var employee = new EmployeeInFile("Jan", "Kowalski");
 while (true)
 {
-    Console.WriteLine("Podaj kolejną ocenę pracownika");
-    Console.WriteLine("Kliknij 'Q' żeby Exit");
+    Console.WriteLine("podaj kolejną ocenę pracownika");
+    Console.WriteLine("kliknij 'q' żeby exit");
     var inputgradetofile = Console.ReadLine();
     if (inputgradetofile == "q")
     {
@@ -45,9 +45,8 @@ while (true)
     }
     catch (Exception exception)
     {
-        Console.WriteLine($"Exception catched: {exception.Message}");
+        Console.WriteLine($"exception catched: {exception.Message}");
     }
 }
-var statistics = employee.GetStatistics();
+var statistics = employee.GetStatistics(); 
 statistics.WriteLineStatistics();
-
