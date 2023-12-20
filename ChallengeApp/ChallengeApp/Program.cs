@@ -7,7 +7,17 @@ Console.WriteLine("=============================================");
 Console.WriteLine("__________statistics from MEMORY_____________");
 
 var supervisor = new Supervisor("Adam", "Mickiewicz");
-Console.WriteLine($"Podaj ocenę pracownika {supervisor.Name } {supervisor.Surname} - ");
+//EVENT
+supervisor.GradeAdded += SupervisorGradeAdded;
+//supervisor.GradeAdded += SupervisorGradeAdded2;
+//supervisor.GradeAdded += SupervisorGradeAdded3;
+void SupervisorGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine(" Dodano nową ocenę");
+}
+
+//supervisor.AddGrades(0.9f); 
+Console.WriteLine($"Podaj ocenę pracownika {supervisor.Name } {supervisor.Surname} - lub 'Q' żeby skonczyć ");
 while (true)
 {
     var input = Console.ReadLine();
@@ -29,14 +39,21 @@ while (true)
 var statisticsfrommemory = supervisor.GetStatistics();
 statisticsfrommemory.WriteLineStatistics();
 Console.WriteLine("=============================================");
-Console.WriteLine("Press any key to continue");
+Console.WriteLine("Press any key to continue ...");
 Console.ReadLine();
 Console.Clear(); 
 Console.WriteLine("=============================================");
 Console.WriteLine("__________statistics from FILE _____________");
 
 var employee = new EmployeeInFile("Jan", "Kowalski");
-Console.WriteLine($"Podaj ocenę pracownika {employee.Name} {employee.Surname} - ");
+employee.GradeAdded += EmployeeGradeAdded;
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine(" Zapisano nową ocenę do pliku ");
+}
+
+Console.WriteLine($"Podaj ocenę pracownika {employee.Name} {employee.Surname} - lub 'Q' żeby skonczyć");
 while (true)
 {
    var inputgradetofile = Console.ReadLine();
